@@ -1,0 +1,79 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<_21520613_KiemTraThucHanhDotNet.Models.TDanhMucSp>
+
+@{
+    ViewData["Title"] = "Manage_Product";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Manage_Product</h1>
+
+<p> 
+    <a asp-action="Add" asp-controller="HomeAdmin">Create New</a>
+</p>
+<table class="table">
+    <thead class="table-warning">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenSp)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.CanNang) (kg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoNoi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThoiGianBaoHanh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GiaNhoNhat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GiaLonNhat)
+            </th>
+         
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 0;
+            string @cls = "table-success";
+        }
+@foreach (var item in Model) {
+            i++;
+            cls = i%2==0?"table-primary":"table-success";
+            
+            <tr class="@cls">
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSp)
+            </td>
+  
+            <td>
+                @Html.DisplayFor(modelItem => item.CanNang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoNoi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianBaoHanh)
+            </td>
+        
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaNhoNhat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaLonNhat)
+            </td>
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MaSp">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MaSp">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaSp">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
