@@ -6,7 +6,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h1>Manage_Product</h1>
+<h1>@TempData["message"]</h1>
 
 <p> 
     <a asp-action="Add" asp-controller="HomeAdmin">Create New</a>
